@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ko">
+  {% load static %}
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=, initial-scale=1.0" />
+    <link rel="stylesheet" href="{% static 'css/profile.css' %}" />
+    <title>안상빈 : 프로필 수정</title>
+  </head>
+  <body>
+    <div class="header"></div>
+    <div class="main">
+      <!-- 개인 정보 수정 페이지 영역 -->
+      <div class="profile-container">
+        <a class="home" href="">
+          <i class="fa-solid fa-house"></i>
+        </a>
+        <p class="profile">개인 정보 페이지</p>
+        <form
+          action=""
+          method="post"
+          class="profile-form"
+          enctype="multipart/form-data"
+        >
+          {% csrf_token %}
+          <div style="display:flex; justify-content: space-between;">
+              <img src="{% static 'img/icon/profile.png' %}" width="100" />
+              <img src="{% static 'img/icon/heart.png' %}" width="100" />
+              <img src="{% static 'img/icon/newjeans.png' %}" width="100" />
+          </div>
+          <p>
+            <b>이름</b> <input type="text" name="name" value="안상빈" />
+          </p>
+          <p>
+            별명 : 안사랑빈
+            <div style="display:flex">
+                <h4>약력</h4>
+                <ul>
+                    <li>대남초 졸업</li>
+                    <li>남천중 졸업</li>
+                    <li>대연고 졸업</li>
+                    <li>중앙대 1학년 재학</li>
+                </ul>
+            </div>
+            <ul style="list-style-type: none;">
+                <li>최애 음료수 : 실론티</li>
+                <li>최애 걸그룹: 뉴진스</li>
+                <li>블로그 이름: 안사랑빈의 사랑채</li>
+                <li>최애 동물: 호랑이</li>
+                <li>최애 포켓몬: 수댕이</li>
+                <li>현재 피파 팀컬러 : 독일 (변경예정)</li>
+                <li>사용휴대폰기종: 아이폰 14</li>
+                <li>mbti: isfj</li>
+                <li>성별: 남 </li>
+            </ul>
+          </p>
+        </form>
+      </div>
+    </div>
+    {% if messages %} {% for message in messages %} {% if message.tags %}
+    <script>
+      alert("{{ message }}");
+    </script>
+    {% endif %} {% endfor %} {% endif %}
+    <script
+      src="https://kit.fontawesome.com/5658349e28.js"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
